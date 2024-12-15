@@ -21,6 +21,8 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Build
+        env:
+          VITE_OPENAI_API_KEY: ${{ secrets.VITE_OPENAI_API_KEY }}
         run: npm run build
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
