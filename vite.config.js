@@ -6,5 +6,6 @@ export default {
     envPrefix: 'VITE_', // this ensures only VITE_ prefixed env vars are exposed
     build: {
       outDir: 'dist', // output directory for build files
-    }
+    },
+    base: '/find-local-dish/',
   }
