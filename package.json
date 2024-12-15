@@ -1,0 +1,28 @@
+{
+  "name": "find-foods",
+  "version": "1.0.0",
+  "description": "recommend a local dish from 5 like- and 5 dislike- food items and a geographic location",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tian-yu-h/find-foods.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tian-yu-h/find-foods/issues"
+  },
+  "homepage": "https://github.com/tian-yu-h/find-foods#readme",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "openai": "^4.76.0"
+  },
+  "devDependencies": {
+    "vite": "^6.0.3"
+  }
+}
