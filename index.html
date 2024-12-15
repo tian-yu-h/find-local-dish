@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Preference Analyzer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="title-container">
+        <h1>Find a local yum stress-free!</h1>
+    </div>
+    <form id="foodForm">
+        <div>
+            <h2>Foods you like</h2>
+            <input type="text" id="like1" placeholder="Liked food 1">
+            <input type="text" id="like2" placeholder="Liked food 2">
+            <input type="text" id="like3" placeholder="Liked food 3">
+            <input type="text" id="like4" placeholder="Liked food 4">
+            <input type="text" id="like5" placeholder="Liked food 5">
+        </div>
+        <div>
+            <h2>Foods you hate</h2>
+            <input type="text" id="dislike1" placeholder="Disliked food 1">
+            <input type="text" id="dislike2" placeholder="Disliked food 2">
+            <input type="text" id="dislike3" placeholder="Disliked food 3">
+            <input type="text" id="dislike4" placeholder="Disliked food 4">
+            <input type="text" id="dislike5" placeholder="Disliked food 5">
+        </div>
+        <div>
+            <h2>Allergies: Foods you can't eat</h2>
+            <input type="text" id="allergy1" placeholder="allergy 1">
+            <input type="text" id="allergy2" placeholder="allergy 2">
+            <input type="text" id="allergy3" placeholder="allergy 3">
+        </div>
+        <div>
+            <h2>Travel destination</h2>
+            <input type="text" id="location" placeholder="Enter your travel destination">
+        </div>
+        <button type="submit">Analyze</button>
+    </form>
+    <div id="result"></div>
+    <script src="https://cdn.jsdelivr.net/npm/openai@4.0.0/dist/openai.min.js"></script>
+    <script type="module" src="script.js"></script>
+
+</body>
+</html>
