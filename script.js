@@ -1,9 +1,10 @@
 
 import { OpenAI } from "https://cdn.skypack.dev/openai@4.0.0";
 
+const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
 const openai = new OpenAI({
-  apiKey: import.meta.env.VITE_OPENAI_API_KEY,
-  dangerouslyAllowBrowser: true // This allows using the API key in the browser (not recommended for production)
+  apiKey: apiKey,
+  dangerouslyAllowBrowser: true
 });
 
 document.getElementById('foodForm').addEventListener('submit', async function(e) {
