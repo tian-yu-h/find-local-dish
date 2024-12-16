@@ -12,5 +12,5 @@ export default {
         }
       }
     },
-    base: '/find-local-dish/',
+    
   }

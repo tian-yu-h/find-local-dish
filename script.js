@@ -1,12 +1,3 @@
-
-import { OpenAI } from "https://cdn.skypack.dev/openai@4.0.0";
-
-const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
-const openai = new OpenAI({
-  apiKey: apiKey,
-  dangerouslyAllowBrowser: true
-});
-
 document.getElementById('foodForm').addEventListener('submit', async function(e) {
   e.preventDefault();
   
@@ -37,30 +28,35 @@ document.getElementById('foodForm').addEventListener('submit', async function(e)
   const location = document.getElementById('location').value;
 
   try {
-    console.log('Sending request with:', {
-      likedFoods,
-      dislikedFoods,
-      location
-    }); 
-    const completion = await openai.chat.completions.create({
-      model: "gpt-3.5-turbo",
-      messages: [
-        { role: "system", content: "You are a helpful assistant that suggests local dishes based on food preferences, allergies, and location." },
-        { role: "user", content: `I like ${likedFoods}. I dislike ${dislikedFoods}. I'm allergic to ${allergies}. I'm in ${location}. Suggest a local dish.` }
-      ],
+    const response = await fetch('/.netlify/functions/openai', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        messages: [
+          { role: "system", content: "You are a helpful assistant that suggests local dishes based on food preferences, allergies, and location." },
+          { role: "user", content: `I like ${likedFoods}. I dislike ${dislikedFoods}. I'm allergic to ${allergies}. I'm in ${location}. Suggest a local dish.` }
+        ]
+      })
     });
-
-    console.log('Response received:', completion); 
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    const completion = await response.json();
+    if (!completion || !completion.choices || !completion.choices[0]) {
+      throw new Error('Invalid response format');
+    }
 
     document.getElementById('result').innerHTML = `
       <h2>Suggested Local Dish:</h2>
       <p>${completion.choices[0].message.content}</p>
     `;
-    
 
   } catch (error) {
-
-    console.error('Detailed Error:', error);
+    console.error('Error:', error);
     document.getElementById('result').innerHTML = '<p>An error occurred. Please try again.</p>';
   }
 });

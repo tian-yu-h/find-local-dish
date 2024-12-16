@@ -24,7 +24,7 @@
   "homepage": "https://github.com/tian-yu-h/find-foods#readme",
   "dependencies": {
     "dotenv": "^16.4.7",
-    "openai": "^4.76.0"
+    "openai": "^4.76.3"
   },
   "devDependencies": {
     "gh-pages": "^6.2.0",

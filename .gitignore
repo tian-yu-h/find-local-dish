@@ -40,3 +40,5 @@ yarn-error.log*
 *.tmp
 
 secrets.txt
+# Local Netlify folder
+.netlify
